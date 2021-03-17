@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Режим редактирования{% endblock %}
+
+{% block body %}
+    <h1>Режим редактирования</h1>
+
+    {{ include('pet/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('pet_index') }}">Вернуться назад</a>
+
+    {{ include('pet/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Наши специалисты{% endblock %}
+
+{% block body %}
+    <h1>Наши специалисты</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Специальность</th>
+                <th>ФИО</th>
+                <th>Стоимость приёма</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vet in vets %}
+            <tr>
+                <td>{{ vet.Specialty }}</td>
+                <td>{{ vet.name }}</td>
+                <td>{{ vet.price }} рублей </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Добро пожаловать{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <div>
+        <a href="{{ url('owner_index') }}">Пользователи</a>
+        <a href="{{ url('vet_index') }}">Ветеринары</a>
+        <a href="{{ url('pet_index') }}">Питомцы</a>
+        <a href="{{ url('visit_index') }}">Запись на приём</a>
+        <a href="{{ url('opinion_index') }}">Отзывы</a>
+        <a href="{{ url('my') }}">Выборка</a>
+    </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

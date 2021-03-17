@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block body %}
+    <h1>Создание нового пользователя</h1>
+
+    {{ include('owner/_form.html.twig') }}
+
+    <a href="{{ path('owner_index') }}">Вернуться назад</a>
+{% endblock %}

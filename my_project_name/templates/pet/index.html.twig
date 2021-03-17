@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Наши животные{% endblock %}
+
+{% block body %}
+    <h1>Наши животные</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Хозяин</th>
+                <th>Кличка</th>
+                <th>Вес</th>
+                <th>Возраст</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pet in pets %}
+            <tr>
+                <td>{{ pet.owner }}</td>
+                <td>{{ pet.name }}</td>
+                <td>{{ pet.weight }}</td>
+                <td>{{ pet.age }}</td>
+                <td>
+                    <a href="{{ path('pet_show', {'id': pet.id}) }}">Просмотреть</a>
+                    <a href="{{ path('pet_edit', {'id': pet.id}) }}">Редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pet_new') }}">Добавить новое животное</a>
+{% endblock %}

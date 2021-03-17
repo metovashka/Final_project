@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block body %}
+    <h1>Пользователи</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Никнейм</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for owner in owners %}
+            <tr>
+                <td>{{ owner.id }}</td>
+                <td>{{ owner.Login }}</td>
+                <td>
+                    <a href="{{ path('owner_show', {'id': owner.id}) }}">Посмотреть</a>
+                    <a href="{{ path('owner_edit', {'id': owner.id}) }}">Редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('owner_new') }}">Зарегистрироваться</a>
+{% endblock %}

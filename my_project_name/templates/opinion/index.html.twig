@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block body %}
+    <h1>Оставьте свой отзыв:)</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Пользователь</th>
+                <th>Специалист</th>
+                <th>Текст</th>
+                <th>Дата создания</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for opinion in opinions %}
+            <tr>
+                <td>{{opinion.owner}}</td>
+                <td>{{opinion.doctor}}</td>
+                <td>{{ opinion.text }}</td>
+                <td>{{ opinion.createAt ? opinion.createAt|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('opinion_show', {'id': opinion.id}) }}">Посмотреть</a>
+                    <a href="{{ path('opinion_edit', {'id': opinion.id}) }}">Редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('opinion_new') }}">Добавить отзыв</a>
+{% endblock %}

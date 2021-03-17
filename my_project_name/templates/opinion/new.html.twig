@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый отзыв{% endblock %}
+
+{% block body %}
+    <h1>Новый отзыв</h1>
+
+    {{ include('opinion/_form.html.twig') }}
+
+    <a href="{{ path('opinion_index') }}">Вернуться назад</a>
+{% endblock %}

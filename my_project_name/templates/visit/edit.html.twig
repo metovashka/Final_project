@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать запись{% endblock %}
+
+{% block body %}
+    <h1>Редактировать запись</h1>
+
+    {{ include('visit/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('visit_index') }}">Вернуться назад</a>
+
+    {{ include('visit/_delete_form.html.twig') }}
+{% endblock %}

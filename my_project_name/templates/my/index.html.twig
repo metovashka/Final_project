@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PetS{% endblock %}
+
+{% block body %}
+    <form method="POST" action="{{ url('my_search') }}">
+        Введите вес
+        <input name="a" type="number"/>
+        Введите возраст
+        <input name="b" type="number"/>
+        <button>Найти</button>
+    </form>
+
+    {% if pet is defined %}
+        {%  for p in pet %}
+
+            {{ p.name }} | {{ p.owner }}
+
+        {%endfor%}
+    {% endif %}
+
+
+{% endblock %}

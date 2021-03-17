@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Приём ветеринара{% endblock %}
+
+{% block body %}
+    <h1>Список записей на примём к специалистам</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Пользователь</th>
+                <th>Животное</th>
+                <th>Симптомы</th>
+                <th>Дата приёма</th>
+                <th>Статус оплаты</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visit in visits %}
+            <tr>
+                <td>{{ visit.id }}</td>
+                <td>{{visit.user}}</td>
+                <td>{{visit.pet}}</td>
+                <td>{{ visit.symptom }}</td>
+                <td>{{ visit.data ? visit.data|date('Y-m-d') : '' }}</td>
+                <td>{{ visit.status }}</td>
+                <td>
+                    <a href="{{ path('visit_show', {'id': visit.id}) }}">Посмотреть </a>
+                    <a href="{{ path('visit_edit', {'id': visit.id}) }}">Редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('visit_new') }}">Записаться на приём</a>
+{% endblock %}
